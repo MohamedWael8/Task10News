@@ -6,7 +6,10 @@ var country = (function IIFE()
         data:{},
         urlBase:"https://restcountries.eu/rest/v2",
         urlExtra:"/alpha/",
-        urlCountry:""
+        urlCountry:"",
+        urlIP:"https://jsonip.com?callback=?",
+        ip:"",
+        urlCurrentCountry:"http://ip-api.com/json/"
     }
 
     _cacheDom();
@@ -33,7 +36,7 @@ var country = (function IIFE()
     {
         $.ajax({
             method: "GET",
-            url: model.urlBase + urlExtra
+            url: model.urlBase + urlExtra + urlCountry
           }).done(function(data) 
           {
             model.data = data;
