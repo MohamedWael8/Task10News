@@ -1,23 +1,32 @@
-var PublisherSubscriber = (function() {
+var PublisherSubscriber = (function() 
+{
     var PublisherSubscriber = {};
-    function on(eventName, fn) {
+    function on(eventName, fn) 
+    {
       PublisherSubscriber[eventName] = PublisherSubscriber[eventName] || [];
       PublisherSubscriber[eventName].push(fn);
     }
   
-    function off(eventName, fn) {
-      if (PublisherSubscriber[eventName]) {
-        for (var i = 0; i < PublisherSubscriber[eventName].length; i++) {
-          if (PublisherSubscriber[eventName][i] === fn) {
+    function off(eventName, fn) 
+    {
+      if (PublisherSubscriber[eventName]) 
+      {
+        for (var i = 0; i < PublisherSubscriber[eventName].length; i++) 
+        {
+          if (PublisherSubscriber[eventName][i] === fn) 
+          {
             PublisherSubscriber[eventName].splice(i, 1);
             break;
           }
         }
       }
     }
-    function emit(eventName, data) {
-      if (PublisherSubscriber[eventName]) {
-        PublisherSubscriber[eventName].forEach(function(fn) {
+    function emit(eventName, data) 
+    {
+      if (PublisherSubscriber[eventName]) 
+      {
+        PublisherSubscriber[eventName].forEach(function(fn) 
+        {
           fn(data);
         });
       }

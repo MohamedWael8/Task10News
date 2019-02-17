@@ -1,4 +1,8 @@
-.card 
+.countryContainer
+{
+    margin-bottom: 2em;
+}
+.countryCard 
 {
     font-size: 1em;
     overflow: hidden;
@@ -10,7 +14,7 @@
     margin-bottom: 0.5rem;
 }
 
-.card-block 
+.card-block-country
 {
     font-size: 1em;
     position: relative;
@@ -58,4 +62,28 @@
 .card-inverse .btn 
 {
     border: 1px solid rgba(0, 0, 0, .05);
+}
+
+.cardNews
+{
+    width: 80em;
+    height: 12em;
+    margin-bottom: 1em;
+    overflow: hidden;
+}
+
+.newsTitle
+{
+    font-size: 18px
+}
+
+.newsImage
+{
+    height: 11.9em;
+    width: 20em;
+}
+
+.card-block-news
+{
+    margin-top: 1em;
 }

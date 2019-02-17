@@ -17,7 +17,6 @@ var country = (function IIFE()
     //cache dom
     var template = $('#countryListTemplate').html();
     var $target = $('#country-list');
-
     _eventListeners();
     _getIP();
 
@@ -25,7 +24,7 @@ var country = (function IIFE()
 
     function _eventListeners()
     {
-        
+     //add modal   
     }
 
     function _render()
@@ -37,7 +36,6 @@ var country = (function IIFE()
     
     function _getIP()
     {
-      console.log("started _getIP");
       $.ajax({
         method: "GET",
         url: "https://jsonip.com?callback="
@@ -45,7 +43,6 @@ var country = (function IIFE()
       {
         state.userIP = data.ip;
         _getCurrentCountryAlpha();
-        console.log("finished _getIP");
       });
     }
 
@@ -56,23 +53,21 @@ var country = (function IIFE()
         url: "http://ip-api.com/json/"+state.userIP
       }).done(function(data) 
       {
-        console.log(state.userIP)
         state.countryAlphaCode = data.countryCode;
         _searchSingleCountryAlphaCode();
-        PublisherSubscriber.emit(_getCurrentCountryAlpha,state.countryAlphaCode);
+        PublisherSubscriber.emit("_getCurrentCountryAlpha",state.countryAlphaCode);
       });
     }
 
     function _searchSingleCountryAlphaCode()
     {
-      console.log("start _searchSingleCountryAlphaCode")
       $.ajax({
         method: "GET",
         url: state.urlCountryBase+state.urlAlphaExtra+state.countryAlphaCode
       }).done(function(data) 
       {
         state.region = data.region;
-        PublisherSubscriber.emit(_searchSingleCountryAlphaCode,data.borders);
+        PublisherSubscriber.emit("_searchSingleCountryAlphaCode",data.borders);
         _searchRegion();
       });
     }
@@ -90,13 +85,8 @@ var country = (function IIFE()
      
     }
 
-    return
-    {
-        
-
-    }
+    return{}
+    
 
 }
 )();
-
-country;

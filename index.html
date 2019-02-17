@@ -11,25 +11,49 @@
   
   <body> 
     
-    <div class="container">
+    <div class="container countryContainer">
       <div class="row"  id="country-list">
-      <script id="countryListTemplate" type="x-tmpl-mustache">
-          {{#data}}
-          <div class="col-sm-4 col-m-4 col-l-4">
-              <div class="card">
-                  <img class="card-img-top" src="{{flag}}">
-                  <div class="card-block">
-                      <h4 class="card-title">{{name}}</h4>
-                      <div class="meta">
-                          <a href="#">{{callingCodes}}</a>
-                      </div>
+        <script id="countryListTemplate" type="x-tmpl-mustache">
+            {{#data}}
+            <div class="col-sm-4 col-m-4 col-l-4">
+                <div class="card countryCard">
+                    <img class="card-img-top" src="{{flag}}">
+                    <div class="card-block card-block-country">
+                        <h4 class="card-title">{{name}}</h4>
+                        <div class="meta">
+                            <a href="#">{{callingCodes}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/data}}
+        </script>
+      </div>
+    </div>
+
+    
+    <div class="container">
+        <div class="row"  id="news-list">
+            <script id="newsTemplate" type="x-tmpl-mustache">
+              {{#data}}
+              <div class="card cardNews">
+                <div class="row">
+                  <div class="col-sm-4 card-img-news">
+                    <img class="newsImage" src="{{urlToImage}}">
                   </div>
+                  <div class="col-sm-8">
+                    <div class="card-block card-block-news">
+                      <h4 class="card-title newsTitle">{{title}}</h4>
+                      <p class="card-text">{{description}}</p>
+                      <a href="{{url}}" class="btn btn-primary">Read More</a>
+                    </div>
+                  </div>
+                </div>
               </div>
-          </div>
-          {{/data}}
-      </script>
-    </div>
-    </div>
+              {{/data}}
+            </script>
+        </div>
+      </div>
   
   </body>  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
@@ -39,4 +63,5 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> 
   <script src="PublisherSubscriber.js"></script>
   <script src="Country.js"></script>
+  <script src="News.js"></script>
 </html>
