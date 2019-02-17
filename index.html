@@ -11,7 +11,25 @@
   
   <body> 
     
-  
+    <div class="container">
+      <div class="row"  id="country-list">
+      <script id="countryListTemplate" type="x-tmpl-mustache">
+          {{#data}}
+          <div class="col-sm-4 col-m-4 col-l-4">
+              <div class="card">
+                  <img class="card-img-top" src="{{flag}}">
+                  <div class="card-block">
+                      <h4 class="card-title">{{name}}</h4>
+                      <div class="meta">
+                          <a href="#">{{callingCodes}}</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          {{/data}}
+      </script>
+    </div>
+    </div>
   
   </body>  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
