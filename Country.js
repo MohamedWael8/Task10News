@@ -67,7 +67,7 @@ var country = (function IIFE()
       }).done(function(data) 
       {
         state.region = data.region;
-        PublisherSubscriber.emit("_searchSingleCountryAlphaCode",data.borders);
+        PublisherSubscriber.emit("_searchSingleCountryAlphaCode",data);
         _searchRegion();
       });
     }
